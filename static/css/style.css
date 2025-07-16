@@ -1,0 +1,24 @@
+
+.container {
+  margin: 0 auto;
+  width: 1200px;
+  padding: 0 1rem;
+}
+
+.form__container {
+  margin: 0 auto;
+  width: 600px;
+  padding: 3rem 1rem;
+}
+
+
+
+.home__text {
+  margin-top: 100px;
+  padding: 100px 10px;
+}
+
+.home__login {
+  margin-bottom: 100px;
+}
+

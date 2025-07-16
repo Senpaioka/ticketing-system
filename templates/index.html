@@ -1,0 +1,20 @@
+{% load static %}
+
+ <!-- header -->
+
+<!-- dynamic title -->
+<title>{% block title %}  {% endblock %}</title>
+
+{% include 'base/header.html' %}
+
+
+            <main>
+                {% block content %}
+            
+                <!-- content -->
+
+                {% endblock %}
+            </main>
+
+ <!-- footer -->
+{% include 'base/footer.html' %}

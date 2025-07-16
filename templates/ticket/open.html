@@ -1,0 +1,50 @@
+{% extends 'index.html' %}
+{% block title %} Home {% endblock %}
+{% load static %}
+
+
+
+{% block content %}
+
+    <section class="open_ticket">
+        <div class="container text-center pt-3 mb-3">
+            <h1>Create a Ticket</h1>
+        </div>
+
+        <div class="form__container">
+            <form action="" method="">
+                <div class="mb-3 pt-3">
+                    <label for="subject" class="form-label">Ticket Subject</label>
+                    <input type="text" class="form-control" id="subject" name="subject" required>
+
+                <div class="mb-3 pt-3">
+                    <label for="description" class="form-label">Ticket Description</label>
+                    <input type="text" class="form-control" id="description" name="description" required>
+                </div>
+
+                <select class="form-select pt-3 mb-3" aria-label="Default select example" required>
+                    <option value="" disabled selected>Select Category</option>
+                    <option value="1">Technical</option>
+                    <option value="2">Billing</option>
+                    <option value="3">General</option>
+                    <option value="4">Others</option>
+                </select>
+
+                <select class="form-select pt-3 mb-3" aria-label="Default select example" required>
+                    <option value="" disabled selected>Priority</option>
+                    <option value="1">Low</option>
+                    <option value="2">Medium</option>
+                    <option value="3">High</option>
+                </select>
+
+                <div class="mb-3 pt-3">
+                    <label for="file" class="form-label">Attachment (if any)</label>
+                    <input class="form-control" type="file" id="file" name="file">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </section>
+
+{% endblock %}
