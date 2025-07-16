@@ -24,14 +24,20 @@
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'home:home' %}">Home</a>
+                            <a class="nav-link active" aria-current="page" href="{% url 'home:home' %}">Home</a>
                         </li>
+                        
+                        {% if user.is_authenticated %}
                         <li class="nav-item">
-                        <a class="nav-link" href="{% url 'ticket:create_ticket' %}">Open Ticket</a>
+                            <a class="nav-link" href="{% url 'ticket:create_ticket' user.username %}">Open Ticket</a>
                         </li>
+
                         <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
+                            <a class="nav-link" href="{% url 'ticket:ticket_page' user.username %}">My Tickets</a>
                         </li>
+                        {% endif %}
+
+                       
                     </ul>
 
                     <span class="navbar-text">

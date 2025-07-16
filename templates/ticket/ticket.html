@@ -1,0 +1,58 @@
+{% extends 'index.html' %}
+{% block title %} Tickets {% endblock %}
+{% load static %}
+
+
+
+{% block content %}
+
+    <section class="ticket_list">
+        <div class="container">
+
+            {% if user.is_authenticated and ticket_info %}
+            {% for item in ticket_info %}
+            <div class="card mt-3 mb-3">
+                <div class="card-body">
+                    <div class="ticket">
+                        <h1>{{ item.title }}</h1>
+                        <p>{{ item.description }}</p>
+                        {% if item.uploaded_file %}
+                            <span>Attachment: </span><a href="{{ item.uploaded_file.url }}">{{ item.uploaded_file.url }}</a>
+                        {% else %}
+                            <p>Attachment: No</p>
+                        {% endif %}   
+                    </div>
+
+                    <div class="mt-3 mb-3">
+                        <h5>Category: {{ item.category }}</h5>
+                        <h5>Priority: {{ item.priority }}</h5>
+                        <span>Status: {{ item.status }}</span>
+                    </div>
+
+                    <div class="user__info mt-3 mb-3">
+                        <p>Posted by: {{ item.user_id.username }}</p>
+                        <span>{{ item.create_at }}</span>
+                    </div>
+                
+                    <div class="ticket__btn mt-3 mb-3">
+                        <a href="" class="btn btn-primary">Comment</a>
+                        <a href="{% url 'ticket:ticket_update' item.pk %}" class="btn btn-success">Edit</a>
+                        <a href="{% url 'ticket:delete' item.pk %}" class="btn btn-danger">Delete</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+            {% else %}
+             <div class="card mt-3 mb-3">
+                <div class="card-body">
+                    <div class="ticket">
+                        <span>No Ticket Found</span>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </section>
+
+{% endblock %}
