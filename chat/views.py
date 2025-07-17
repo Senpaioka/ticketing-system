@@ -1,17 +1,11 @@
 from django.shortcuts import render, redirect
-import random
-import string
+from utils.room_generator import generate_random_id
 from django.urls import reverse
-
-def generate_random_id(length=12):
-    characters = string.ascii_letters + string.digits
-    return ''.join(random.choice(characters) for _ in range(length))
-
 
 def index(request):
     
-    random_room = generate_random_id()
-    return redirect(reverse('chat:room', kwargs={'room_name': random_room}))
+    room_id = generate_random_id()
+    return redirect(reverse('chat:room', kwargs={'room_name': room_id}))
 
 
 

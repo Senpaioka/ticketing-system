@@ -24,9 +24,12 @@
             </div>
 
 
+            {% if user.is_authenticated %}
             <div class="chat__head">
                 <a class="btn btn-success" href="{% url 'chat:index' %}">Chat</a>
             </div>
+            {% endif %}
+
         </div>
     </section>
 
