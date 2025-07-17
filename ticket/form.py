@@ -1,5 +1,5 @@
 from django import forms
-from ticket.models import createTicket
+from ticket.models import createTicket, CommentModel
 
 class TicketForm(forms.ModelForm):
 
@@ -27,4 +27,16 @@ class UpdateTicketForm(forms.ModelForm):
             'category': forms.Select(attrs={'class': 'form-control'}),
             'priority': forms.Select(attrs={'class': 'form-control'}),
             'uploaded_file': forms.ClearableFileInput(attrs={'class': 'form-control'}),            
+        }
+
+
+
+
+class CommentForm(forms.ModelForm):
+
+    class Meta:
+        model = CommentModel
+        fields = ['message']
+        widgets = {
+            'message': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Write something...'}),            
         }

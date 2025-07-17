@@ -35,7 +35,7 @@
                     </div>
                 
                     <div class="ticket__btn mt-3 mb-3">
-                        <a href="" class="btn btn-primary">Comment</a>
+                        <a href="{% url 'ticket:comment' item.pk %}" class="btn btn-primary">Comment</a>
                         <a href="{% url 'ticket:ticket_update' item.pk %}" class="btn btn-success">Edit</a>
                         <a href="{% url 'ticket:delete' item.pk %}" class="btn btn-danger">Delete</a>
                     </div>

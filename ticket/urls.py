@@ -11,4 +11,5 @@ urlpatterns = [
     path('delete/<str:ticket_id>/', views.delete_ticket, name='delete'),
     path('success/', views.success_page, name='success'),
     path('updated/', views.update_success, name='updated'),
+    path('comments/<int:ticket_id>/', views.comment_page, name='comment'),
 ]

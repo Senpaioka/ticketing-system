@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from ticket.form import TicketForm, UpdateTicketForm
-from ticket.models import createTicket
+from ticket.form import TicketForm, UpdateTicketForm, CommentForm
+from ticket.models import createTicket, CommentModel
 from account.models import UserAccount
 
 # Create your views here.
@@ -130,3 +130,47 @@ def success_page(request):
     context = {}
 
     return render(request, html_template_name, context) 
+
+
+
+
+
+
+def comment_page(request, ticket_id):
+
+    html_template_name = 'ticket/comment.html'
+
+    ticket_value = ticket_id
+
+    get_comment = CommentModel.objects.filter(ticket_no=ticket_id)
+
+    if request.method == 'POST':
+        comment_form = CommentForm(request.POST)
+
+        if comment_form.is_valid():
+            comment = comment_form.cleaned_data['message']
+
+            save_comment = CommentModel.objects.create(
+                user_info = request.user,
+                ticket_no = ticket_id,
+                message = comment,
+            )
+
+            comment_form = CommentForm()
+
+            save_comment.save()
+
+    else:
+        comment_form = CommentForm()
+
+    context = {
+        'form': comment_form,
+        'id_ticket': ticket_value,
+        'comments' : get_comment,
+    }
+
+    return render(request, html_template_name, context)
+
+
+
+

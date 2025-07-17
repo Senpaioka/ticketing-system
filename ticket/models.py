@@ -41,3 +41,19 @@ class createTicket(models.Model):
     def __str__(self):
         return self.title
 
+
+
+
+
+
+
+class CommentModel(models.Model):
+    user_info = models.ForeignKey(UserAccount, on_delete=models.CASCADE)
+    ticket_no = models.IntegerField()
+    message = models.CharField(max_length=255)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.message
+    
+     
