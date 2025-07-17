@@ -37,7 +37,12 @@
                         </li>
                         {% endif %}
 
-                       
+                        {% if user.is_authenticated and user.is_admin %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'ticket:admin_ticket' %}">All Tickets</a>
+                            </li>
+                        {% endif %}
+            
                     </ul>
 
                     <span class="navbar-text">

@@ -174,3 +174,16 @@ def comment_page(request, ticket_id):
 
 
 
+def admin_ticket_page(request):
+
+    html_template_name = 'ticket/all.html'
+
+    all_tickets = createTicket.objects.all()
+
+    context = {
+        'ticket_info': all_tickets,
+    }
+
+    return render(request, html_template_name, context)
+
+
