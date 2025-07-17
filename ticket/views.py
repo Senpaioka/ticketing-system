@@ -26,14 +26,13 @@ def creating_ticket(request, username):
         
 
             ticket = createTicket.objects.create(
-                user_id = get_user,
                 title = title,
                 description = description,
                 category = category,
                 priority = priority,
                 uploaded_file = uploaded_file
             )
-            
+            ticket.user_account = get_user      
             ticket.save()
 
         return redirect('ticket:success')
@@ -98,7 +97,7 @@ def ticket_page(request, username):
 
     html_template_name = 'ticket/ticket.html'
 
-    get_tickets = createTicket.objects.filter(user_id__username=username).all()
+    get_tickets = createTicket.objects.filter(user_account__username=username).all()
 
     context = {
         'ticket_info': get_tickets,

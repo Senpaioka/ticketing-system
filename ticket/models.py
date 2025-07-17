@@ -3,7 +3,7 @@ from account.models import UserAccount
 
 # Create your models here.
 class createTicket(models.Model):
-    user_id = models.ForeignKey(UserAccount, on_delete=models.CASCADE)
+    user_account = models.ForeignKey(UserAccount, on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
     description = models.TextField()
 
