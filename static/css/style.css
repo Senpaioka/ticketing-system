@@ -3,6 +3,7 @@
   margin: 0 auto;
   width: 1200px;
   padding: 0 1rem;
+  position: relative;
 }
 
 .form__container {
@@ -22,6 +23,12 @@
   margin-bottom: 100px;
 }
 
-.comment-flex {
-  display: flex;
+.chat__head {
+  position: absolute;
+  right: 10px;
+  bottom: 5px;
+}
+
+.chat__head a {
+  width: 100px;
 }
