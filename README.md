@@ -1,13 +1,27 @@
-# How to use this repo
+# How to use this site
 
-1. setup python virtual env in local computer
+live preview: https://ticketing-system-wsuj.onrender.com/
 
-2. install this repo using 'requirements.txt'
+## admin panel access ##
 
-3. first setup a django superuser account to access admin panel using 'python manage.py createsuperuser'
+admin link : https://ticketing-system-wsuj.onrender.com/admin/login/?next=/admin/
 
-4. run the server using 'python manage.py runserver'
+username: admin
+password : 1234
 
-5. now you can create accounts to open tickets and everything
+[website full access]
 
-Note: these command can be vary depending on OS (Windows/Linux/masOS). 
+
+## admin access ##
+
+go to login page:
+    username: admin
+    password: 1234
+
+## you can create general user account manually by registering
+
+for testing you can login
+    username: doe
+    password: 1234
+     
+
