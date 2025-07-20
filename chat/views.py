@@ -4,8 +4,9 @@ from django.urls import reverse
 
 def index(request):
     
-    room_id = generate_random_id()
-    return redirect(reverse('chat:room', kwargs={'room_name': room_id}))
+        room_id = generate_random_id()
+        return redirect(reverse('chat:room', kwargs={'room_name': room_id}))
+     
 
 
 
