@@ -155,6 +155,13 @@ AUTH_USER_MODEL = "account.UserAccount"
 ASGI_APPLICATION = 'main.asgi.application'
 CHANNEL_LAYERS = {
     "default": {
-        "BACKEND": "channels.layers.InMemoryChannelLayer"
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [
+                        ("ticketing-system-wsuj.onrender.com", 6379),
+                        ("127.0.0.1", 6379),
+                    ],
+                      
+        },
     },
 }
